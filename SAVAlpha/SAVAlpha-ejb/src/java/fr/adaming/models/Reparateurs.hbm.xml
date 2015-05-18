@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 mai 2015 13:37:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.adaming.models.Reparateurs" table="reparateurs" catalog="dbprojet">
+        <id name="idReparateur" type="int">
+            <column name="id_reparateur" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="adresses" class="fr.adaming.models.Adresses" fetch="select">
+            <column name="id_adresse" />
+        </many-to-one>
+        <many-to-one name="comptes" class="fr.adaming.models.Comptes" fetch="select">
+            <column name="id_compte" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="nom" length="254" />
+        </property>
+        <property name="nbReparation" type="java.lang.Integer">
+            <column name="nb_reparation" />
+        </property>
+        <property name="mail" type="string">
+            <column name="mail" length="254" />
+        </property>
+        <set name="reparationses" table="reparations" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_reparateur" not-null="true" />
+            </key>
+            <one-to-many class="fr.adaming.models.Reparations" />
+        </set>
+    </class>
+</hibernate-mapping>

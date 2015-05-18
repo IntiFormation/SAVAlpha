@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 mai 2015 13:37:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.adaming.models.Enseignes" table="enseignes" catalog="dbprojet">
+        <id name="idEnseigne" type="int">
+            <column name="id_enseigne" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" length="254" />
+        </property>
+        <property name="versementMensuel" type="java.lang.Float">
+            <column name="versementMensuel" precision="12" scale="0" />
+        </property>
+        <set name="vendeurses" table="vendeurs" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_enseigne" />
+            </key>
+            <one-to-many class="fr.adaming.models.Vendeurs" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 mai 2015 13:37:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.adaming.models.Produits" table="produits" catalog="dbprojet">
+        <id name="idProduit" type="int">
+            <column name="id_produit" />
+            <generator class="assigned" />
+        </id>
+        <property name="categorie" type="string">
+            <column name="categorie" length="254" />
+        </property>
+        <property name="marque" type="string">
+            <column name="marque" length="254" />
+        </property>
+        <property name="modele" type="string">
+            <column name="modele" length="254" />
+        </property>
+        <property name="urlImg" type="string">
+            <column name="urlImg" length="254" />
+        </property>
+        <property name="transportable" type="java.lang.Integer">
+            <column name="transportable" />
+        </property>
+        <property name="garantieConstructeur" type="java.lang.Integer">
+            <column name="garantieConstructeur" />
+        </property>
+        <property name="garantieIncluse" type="java.lang.Integer">
+            <column name="garantieIncluse" />
+        </property>
+        <set name="prodGars" table="prod_gar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_produit" not-null="true" />
+            </key>
+            <one-to-many class="fr.adaming.models.ProdGar" />
+        </set>
+        <set name="prodPannes" table="prod_panne" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_produit" not-null="true" />
+            </key>
+            <one-to-many class="fr.adaming.models.ProdPanne" />
+        </set>
+        <set name="cltProdGarVends" table="clt_prod_gar_vend" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_produit" not-null="true" />
+            </key>
+            <one-to-many class="fr.adaming.models.CltProdGarVend" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 mai 2015 13:37:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.adaming.models.VendGar" table="vend_gar" catalog="dbprojet">
+        <composite-id name="id" class="fr.adaming.models.VendGarId">
+            <key-property name="idVendeur" type="int">
+                <column name="id_vendeur" />
+            </key-property>
+            <key-property name="idGarantie" type="int">
+                <column name="id_garantie" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vendeurs" class="fr.adaming.models.Vendeurs" update="false" insert="false" fetch="select">
+            <column name="id_vendeur" not-null="true" />
+        </many-to-one>
+        <many-to-one name="garanties" class="fr.adaming.models.Garanties" update="false" insert="false" fetch="select">
+            <column name="id_garantie" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

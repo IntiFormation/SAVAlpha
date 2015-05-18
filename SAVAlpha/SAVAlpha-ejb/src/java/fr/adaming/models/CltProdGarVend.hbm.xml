@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 mai 2015 13:37:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.adaming.models.CltProdGarVend" table="clt_prod_gar_vend" catalog="dbprojet">
+        <composite-id name="id" class="fr.adaming.models.CltProdGarVendId">
+            <key-property name="idClient" type="int">
+                <column name="id_client" />
+            </key-property>
+            <key-property name="idProduit" type="int">
+                <column name="id_produit" />
+            </key-property>
+            <key-property name="idGarantie" type="java.lang.Integer">
+                <column name="id_garantie" />
+            </key-property>
+            <key-property name="idVendeur" type="java.lang.Integer">
+                <column name="id_vendeur" />
+            </key-property>
+            <key-property name="idReparation" type="java.lang.Integer">
+                <column name="id_reparation" />
+            </key-property>
+            <key-property name="dateAchat" type="date">
+                <column name="date_achat" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="vendeurs" class="fr.adaming.models.Vendeurs" update="false" insert="false" fetch="select">
+            <column name="id_vendeur" />
+        </many-to-one>
+        <many-to-one name="reparations" class="fr.adaming.models.Reparations" update="false" insert="false" fetch="select">
+            <column name="id_reparation" />
+        </many-to-one>
+        <many-to-one name="produits" class="fr.adaming.models.Produits" update="false" insert="false" fetch="select">
+            <column name="id_produit" not-null="true" />
+        </many-to-one>
+        <many-to-one name="garanties" class="fr.adaming.models.Garanties" update="false" insert="false" fetch="select">
+            <column name="id_garantie" />
+        </many-to-one>
+        <many-to-one name="clients" class="fr.adaming.models.Clients" update="false" insert="false" fetch="select">
+            <column name="id_client" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 mai 2015 13:37:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.adaming.models.Garanties" table="garanties" catalog="dbprojet">
+        <id name="idGarantie" type="int">
+            <column name="id_garantie" />
+            <generator class="assigned" />
+        </id>
+        <property name="duree" type="java.lang.Integer">
+            <column name="duree" />
+        </property>
+        <property name="cout" type="java.lang.Float">
+            <column name="cout" precision="12" scale="0" />
+        </property>
+        <set name="prodGars" table="prod_gar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_garantie" not-null="true" />
+            </key>
+            <one-to-many class="fr.adaming.models.ProdGar" />
+        </set>
+        <set name="cltProdGarVends" table="clt_prod_gar_vend" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_garantie" />
+            </key>
+            <one-to-many class="fr.adaming.models.CltProdGarVend" />
+        </set>
+        <set name="vendGars" table="vend_gar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_garantie" not-null="true" />
+            </key>
+            <one-to-many class="fr.adaming.models.VendGar" />
+        </set>
+    </class>
+</hibernate-mapping>

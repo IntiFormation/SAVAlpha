@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 mai 2015 13:37:22 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.adaming.models.Reparations" table="reparations" catalog="dbprojet">
+        <id name="idReparation" type="int">
+            <column name="id_reparation" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="pannes" class="fr.adaming.models.Pannes" fetch="select">
+            <column name="id_panne" />
+        </many-to-one>
+        <many-to-one name="reparateurs" class="fr.adaming.models.Reparateurs" fetch="select">
+            <column name="id_reparateur" not-null="true" />
+        </many-to-one>
+        <property name="description" type="string">
+            <column name="description" length="254" />
+        </property>
+        <property name="dateEtat" type="timestamp">
+            <column name="date_etat" length="19" />
+        </property>
+        <property name="etat" type="string">
+            <column name="etat" length="254" />
+        </property>
+        <property name="payee" type="java.lang.Integer">
+            <column name="payee" />
+        </property>
+        <set name="cltProdGarVends" table="clt_prod_gar_vend" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_reparation" />
+            </key>
+            <one-to-many class="fr.adaming.models.CltProdGarVend" />
+        </set>
+    </class>
+</hibernate-mapping>
