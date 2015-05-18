@@ -21,9 +21,9 @@
     <welcome-file-list>
         <!--<welcome-file>faces/connexion.xhtml</welcome-file>-->
         <!--<welcome-file>faces/creationCompte.xhtml</welcome-file>-->
-        <welcome-file>faces/paiement.xhtml</welcome-file>
+        <!--<welcome-file>faces/paiement.xhtml</welcome-file>-->
         <!--<welcome-file>faces/recapitulatif.xhtml</welcome-file>-->
         <!--<welcome-file>faces/ficheReaparationVendeur.xhtml</welcome-file>-->
-        <!--<welcome-file>faces/devis.xhtml</welcome-file>-->
+        <welcome-file>faces/devis.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>
