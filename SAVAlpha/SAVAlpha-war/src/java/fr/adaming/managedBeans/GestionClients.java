@@ -17,7 +17,7 @@ import javax.faces.context.FacesContext;
  *
  * @author INTI-0214
  */
-@ManagedBean(name = "getsionClients")
+@ManagedBean(name = "gestionClients")
 @SessionScoped
 public class GestionClients {
 
