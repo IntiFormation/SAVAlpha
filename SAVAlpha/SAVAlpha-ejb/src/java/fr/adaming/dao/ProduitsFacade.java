@@ -18,7 +18,7 @@ import javax.persistence.Query;
  */
 @Stateless
 public class ProduitsFacade extends AbstractFacade<Produits> implements ProduitsFacadeLocal {
-    @PersistenceContext(unitName = "SAVAlpha-ejbPU")
+    @PersistenceContext(unitName = "SAVAlphaFinal-ejbPU")
     private EntityManager em;
     
 
