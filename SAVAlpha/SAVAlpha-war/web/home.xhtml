@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Accueil</title>
     </h:head>
@@ -22,35 +23,41 @@
                         <h:panelGrid columns="2">
                             <p:outputLabel value="Categorie : " />
                             <p:selectOneMenu style="width:150px">
+                                <f:selectItem itemLabel="Choisir categorie" itemValue=""/>
+                                <f:selectItems value="#{gestionProduitHome.categories}"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel value="Marque : " />
                             <p:selectOneMenu style="width:150px">
+                                <f:selectItem itemLabel="Choisir marque" itemValue=""/>
+                                <f:selectItems value="#{gestionProduitHome.marques}"/>
                             </p:selectOneMenu>
 
                             <p:outputLabel value="Model : " />
                             <p:selectOneMenu style="width:150px">
+                                <f:selectItem itemLabel="Choisir modele" itemValue=""/>
+                                <f:selectItems value="#{gestionProduitHome.modeles}"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
                     </p:panel>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    <p:dataTable>
+                    <p:dataTable var="item" value="#{gestionProduitHome.prod}">
                         <p:column headerText="Categorie">
-                            <h:outputText value="#{car.id}" />
+                            <h:outputText value="#{item.categorie}" />
                         </p:column>
 
                         <p:column headerText="Marque">
-                            <h:outputText value="#{car.year}" />
+                            <h:outputText value="#{item.marque}" />
                         </p:column>
 
                         <p:column headerText="Modele">
-                            <h:outputText value="#{car.brand}" />
+                            <h:outputText value="#{item.modele}" />
                         </p:column>
 
                         <p:column headerText="Forfait">
-                            <h:outputText value="#{car.color}" />
+                            <h:outputText value="#{item.categorie}" />
                         </p:column>
                     </p:dataTable>
                     
