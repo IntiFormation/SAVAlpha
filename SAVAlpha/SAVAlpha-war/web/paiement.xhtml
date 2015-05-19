@@ -9,13 +9,15 @@
     <h:body>
         <p:layout fullPage="true">
 
-            <p:layoutUnit position="north">
+            <p:layoutUnit position="north" style="text-align: center">
                 <h1> Paiement </h1>
             </p:layoutUnit>
 
-            <p:layoutUnit position="west">
+            <p:layoutUnit position="west" minSize="500" style="text-align: center">
                 <br/>
                 <h:form>
+                    <h2>Informations à saisir</h2>
+                    <br/>
                     <p:inputText id="nom" placeholder="Nom du titulaire"/>
                     <br/>
                     <br/>
@@ -33,7 +35,7 @@
                 </h:form>
             </p:layoutUnit>
 
-            <p:layoutUnit position="center">
+            <p:layoutUnit position="center" style="text-align: center">
                 <h2>Facture</h2>
                 <br/>
                 <h:outputLabel value="Categorie du produit : "/>
